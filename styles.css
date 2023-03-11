@@ -78,3 +78,10 @@ table {
     width: 25%;
     position: relative;
 }
+.closeBtn{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border: 1px solid gold;
+    border-radius: 4px;
+}

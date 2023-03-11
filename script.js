@@ -43,8 +43,12 @@ function addBooktoLibrary(book){
 
 const addButton = document.getElementById("addBookBtn");
 addButton.addEventListener('click', function(e){
-    
-    const newBook = new Book("Game of Thrones","George RR Martin", 112, 1);
+    if(document.getElementById("addBookForm").style.display != "block"){
+        openForm();
+    }else if (document.getElementById("addBookForm").style.display == "block"){
+        closeForm();
+    }
+    //const newBook = new Book("Game of Thrones","George RR Martin", 112, 1);
     myLibrary.push(newBook);
     
     const library = document.getElementById("libraryContainer");
@@ -90,11 +94,11 @@ function deleteBook(parentID){
 }
 
 function openForm(){
-    document.querySelector("addBookForm").style.display = "block"
+    document.getElementById("addBookForm").style.display = "block"
 }
 
 function closeForm(){
-    document.querySelector("addBookForm").style.display = "none"
+    document.getElementById("addBookForm").style.display = "none"
 }
 
 
