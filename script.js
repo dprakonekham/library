@@ -67,9 +67,9 @@ function openForm(){
 function closeForm(){
     document.getElementById("addBookForm").style.display = "none"
 }
-const addButtonForm = document.getElementById("add");
-addButtonForm.addEventListener(`click`, function(e){
-    //const newBook = new Book("Game of Thrones","George RR Martin", 112, 1);
+
+function getFormContents(form){
+    const newBook = new Book(form.elements[1].value,form.elements[2].value, form.elements[3].value, form.elements[4].value);
     myLibrary.push(newBook);
     
     const library = document.getElementById("libraryContainer");
@@ -102,9 +102,7 @@ addButtonForm.addEventListener(`click`, function(e){
     })
 
     library.appendChild(bookContainer)
-})
-
-function getFormContents(form){
-    console.log(form)
+    document.getElementById("addBookForm").reset();
+    closeForm();
 }
 
