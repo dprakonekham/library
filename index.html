@@ -11,9 +11,20 @@
 <body>
     <div class="header">
         <div class="title">My Book Library</div>
-        <button class="addBook">+ Add Book</button>
+        <button class="addBook" id="addBookBtn">+ Add Book</button>
     </div>
-    <div class="container">
+    <div class="container" id="libraryContainer">
+        <form class="addBookForm">
+            <div class="inputTitle">Book Title</div>
+            <input type="text" class="bookTitle" placeHolder="Title">
+            <div class="inputAuthor">Book Author</div>
+            <input type="text" class="bookAuthor" placeholder="Author">
+            <div class="inputPages">Total Pages</div>
+            <input type="number" class="totalPages" placeholder="Page">
+            <div class="inputCurrentPage">Current Page</div>
+            <input type="number" class="currentPage" placeholder="Page">
+            <button class="add">Add</button>
+        </form>
     </div>
 </body>
 </html>

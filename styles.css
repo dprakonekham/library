@@ -52,3 +52,27 @@ table {
 .title{
     margin: 10px;
 }
+.container{
+    display: grid;
+    height: 100vh;
+    font-family: futura;
+}
+.addBookForm{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    background-color: gold;
+    color: purple;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: none;
+}
+.add{
+    width: 25%;
+    position: relative;
+}
