@@ -49,6 +49,7 @@ addButton.addEventListener('click', function(e){
     
     const library = document.getElementById("libraryContainer");
     const bookContainer = document.createElement("book" + (myLibrary.length-1).toString());
+    bookContainer.id = "book" + (myLibrary.length-1).toString();
     bookContainer.style.display = "flex";
     bookContainer.style.flexDirection = "column";
     bookContainer.style.alignContent = "center";
@@ -71,16 +72,23 @@ addButton.addEventListener('click', function(e){
     button.textContent = "Delete";
     bookContainer.appendChild(button);
     button.addEventListener('click',function(e){
-        console.log(e.target.parentNode)
+        //Get id of the parent node of the clicked button
+        deleteBook(e.target.parentNode.id);
     })
 
     library.appendChild(bookContainer)
 });
 
-function deleteBook(){
-    //Get array location of book
-    //Delete and shift array
-    
+function deleteBook(parentID){
+    const element = document.getElementById(parentID);
+    element.remove();
+
+    //Extrapolate index of the book with the parentID
+    parentID = parentID.replace("book", "");
+    //Using splice method to remove at the index
+    console.log(myLibrary)
+    myLibrary.splice(parentID,1);
+    console.log(myLibrary)
 }
 
 function openForm(){
