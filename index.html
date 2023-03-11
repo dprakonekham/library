@@ -17,14 +17,14 @@
         <form class="addBookForm" id="addBookForm">
             <button class="closeBtn" id="closeBtn" onclick=closeForm()>X</button>
             <div class="inputTitle">Book Title</div>
-            <input type="text" class="bookTitle" placeHolder="Title">
+            <input type="text" class="bookTitle" placeHolder="Title" required>
             <div class="inputAuthor">Book Author</div>
-            <input type="text" class="bookAuthor" placeholder="Author">
+            <input type="text" class="bookAuthor" placeholder="Author" required>
             <div class="inputPages">Total Pages</div>
-            <input type="number" class="totalPages" placeholder="Page">
+            <input type="number" class="totalPages" placeholder="Page" required>
             <div class="inputCurrentPage">Current Page</div>
             <input type="number" class="currentPage" placeholder="Page">
-            <button class="add">Add</button>
+            <button class="add" id="add" onclick="getFormContents(this.form); return false;";>Add</button>
         </form>
     </div>
 </body>

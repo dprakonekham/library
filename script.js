@@ -48,6 +48,27 @@ addButton.addEventListener('click', function(e){
     }else if (document.getElementById("addBookForm").style.display == "block"){
         closeForm();
     }
+});
+
+function deleteBook(parentID){
+    const element = document.getElementById(parentID);
+    element.remove();
+
+    //Extrapolate index of the book with the parentID
+    parentID = parentID.replace("book", "");
+    //Using splice method to remove at the index
+    myLibrary.splice(parentID,1);
+}
+
+function openForm(){
+    document.getElementById("addBookForm").style.display = "block"
+}
+
+function closeForm(){
+    document.getElementById("addBookForm").style.display = "none"
+}
+const addButtonForm = document.getElementById("add");
+addButtonForm.addEventListener(`click`, function(e){
     //const newBook = new Book("Game of Thrones","George RR Martin", 112, 1);
     myLibrary.push(newBook);
     
@@ -81,24 +102,9 @@ addButton.addEventListener('click', function(e){
     })
 
     library.appendChild(bookContainer)
-});
+})
 
-function deleteBook(parentID){
-    const element = document.getElementById(parentID);
-    element.remove();
-
-    //Extrapolate index of the book with the parentID
-    parentID = parentID.replace("book", "");
-    //Using splice method to remove at the index
-    myLibrary.splice(parentID,1);
+function getFormContents(form){
+    console.log(form)
 }
-
-function openForm(){
-    document.getElementById("addBookForm").style.display = "block"
-}
-
-function closeForm(){
-    document.getElementById("addBookForm").style.display = "none"
-}
-
 
