@@ -86,9 +86,7 @@ function deleteBook(parentID){
     //Extrapolate index of the book with the parentID
     parentID = parentID.replace("book", "");
     //Using splice method to remove at the index
-    console.log(myLibrary)
     myLibrary.splice(parentID,1);
-    console.log(myLibrary)
 }
 
 function openForm(){
