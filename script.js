@@ -34,7 +34,7 @@ function Book(title,author,pages,currentPage){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.page = currentPage;
+    this.currentPage = currentPage;
 }
 
 function addBooktoLibrary(book){
@@ -69,40 +69,63 @@ function closeForm(){
 }
 
 function getFormContents(form){
-    const newBook = new Book(form.elements[1].value,form.elements[2].value, form.elements[3].value, form.elements[4].value);
-    myLibrary.push(newBook);
+    console.log(form.elements[3].value)
+    console.log(form.elements[4].value)
+    let formComplete = false;
+    //while form complete flag is not true
+    while(formComplete == false){
+        if(form.elements[1].value == ""){
+            
+        }else if(form.elements[2].value == ""){
+            
+        }else if(form.elements[3].value == ""){
+
+        }else{
+            if(form.elements[4].value == ""){
+                form.elements[4].value = 0
+            }
+            const newBook = new Book(form.elements[1].value,form.elements[2].value, form.elements[3].value, form.elements[4].value);
+            myLibrary.push(newBook);
+        
+            const library = document.getElementById("libraryContainer");
+            const bookContainer = document.createElement("book" + (myLibrary.length-1).toString());
+            bookContainer.id = "book" + (myLibrary.length-1).toString();
+            bookContainer.style.display = "flex";
+            bookContainer.style.flexDirection = "column";
+            bookContainer.style.alignContent = "center";
+            bookContainer.style.justifyContent = "center";
+            bookContainer.style.color = "purple";
+            bookContainer.style.backgroundColor = "gold";
+            bookContainer.style.border = "solid black";
     
-    const library = document.getElementById("libraryContainer");
-    const bookContainer = document.createElement("book" + (myLibrary.length-1).toString());
-    bookContainer.id = "book" + (myLibrary.length-1).toString();
-    bookContainer.style.display = "flex";
-    bookContainer.style.flexDirection = "column";
-    bookContainer.style.alignContent = "center";
-    bookContainer.style.justifyContent = "center";
-    bookContainer.style.color = "purple";
-    bookContainer.style.backgroundColor = "gold";
-    bookContainer.style.border = "solid black";
+            const newTitle = document.createElement("title" + (myLibrary.length-1).toString());
+            newTitle.textContent = newBook.title;
+            bookContainer.appendChild(newTitle);
+    
+            const newAuthor = document.createElement("author" + (myLibrary.length-1).toString());
+            newAuthor.textContent = newBook.author;
+            bookContainer.appendChild(newAuthor);
 
-    const newTitle = document.createElement("title" + (myLibrary.length-1).toString());
-    bookContainer.style.display = "flex";
-    newTitle.textContent = newBook.title;
-    bookContainer.appendChild(newTitle);
+            const newPages= document.createElement("pages" + (myLibrary.length-1).toString());
+            newPages.textContent = newBook.pages;
+            bookContainer.appendChild(newPages);
 
-    const newAuthor = document.createElement("author" + (myLibrary.length-1).toString());
-    bookContainer.style.display = "flex";
-    newAuthor.textContent = newBook.author;
-    bookContainer.appendChild(newAuthor);
-
-    const button = document.createElement("button");
-    button.textContent = "Delete";
-    bookContainer.appendChild(button);
-    button.addEventListener('click',function(e){
-        //Get id of the parent node of the clicked button
-        deleteBook(e.target.parentNode.id);
-    })
-
-    library.appendChild(bookContainer)
-    document.getElementById("addBookForm").reset();
+            const newCurrentPage = document.createElement("cPages" + (myLibrary.length-1).toString());
+            newCurrentPage.textContent = newBook.currentPage;
+            bookContainer.appendChild(newCurrentPage);
+    
+            const button = document.createElement("button");
+            button.textContent = "Delete";
+            bookContainer.appendChild(button);
+            button.addEventListener('click',function(e){
+            //Get id of the parent node of the clicked button
+            deleteBook(e.target.parentNode.id);
+            })
+            library.appendChild(bookContainer)
+            document.getElementById("addBookForm").reset();
+            formComplete = true;
+        }
+    }
     closeForm();
 }
 
