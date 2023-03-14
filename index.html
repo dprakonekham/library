@@ -15,16 +15,16 @@
     </div>
     <div class="container" id="libraryContainer">
         <form class="addBookForm" id="addBookForm">
-            <button class="closeBtn" id="closeBtn" onclick=closeForm()>X</button>
+            <button type="button" class="closeBtn" id="closeBtn">X</button>
             <div class="inputTitle">Book Title</div>
             <input type="text" class="bookTitle" id="bookTitleInput" placeHolder="Title">
             <div class="inputAuthor">Book Author</div>
-            <input type="text" class="bookAuthor" placeholder="Author">
+            <input type="text" class="bookAuthor" id="bookAuthorInput" placeholder="Author">
             <div class="inputPages">Total Pages</div>
-            <input type="number" class="totalPages" placeholder="Page">
+            <input type="number" class="totalPages" id="bookPagesInput" placeholder="Page">
             <div class="inputCurrentPage">Current Page</div>
             <input type="number" class="currentPage" placeholder="Leave blank if not read">
-            <button class="add" id="add" onclick="getFormContents(this.form); return false;";>Add</button>
+            <button disabled class="add" id="add" onclick="getFormContents(this.form); return false;">Add</button>
         </form>
     </div>
 </body>
